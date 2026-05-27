@@ -1,5 +1,0 @@
-mkdir public
-touch public/.gitkeep
-git add .
-git commit -m "Create directory structure"
-git push
