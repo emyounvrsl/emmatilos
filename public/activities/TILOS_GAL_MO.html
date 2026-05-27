@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emma's Gallery of Moments</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2d6a4f;
+            --primary-light: #40916c;
+            --accent: #52b788;
+            --bg: #f8f9fa;
+            --text: #2d3436;
+            --card: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            padding: 3rem 1rem;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+        }
+
+        .gallery {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            background: var(--card);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-item figcaption {
+            padding: 1rem;
+            text-align: center;
+            font-weight: 500;
+            color: var(--primary);
+        }
+
+        .about {
+            max-width: 800px;
+            margin: 3rem auto;
+            padding: 2.5rem;
+            background: var(--card);
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+
+        .about img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--accent);
+            margin-bottom: 1.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            margin: 2rem auto;
+            padding: 12px 28px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        /* Lightbox */
+        .lightbox-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0; top: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 85%;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 25px;
+            right: 35px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* Scroll to Top */
+        #scrollTopBtn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: none;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            z-index: 100;
+        }
+
+        /* Dark Mode */
+        .dark-mode {
+            --bg: #1a1a1a;
+            --text: #e0e0e0;
+            --card: #252525;
+            --primary: #52b788;
+        }
+
+        .dark-mode header {
+            background: linear-gradient(135deg, #1f2a24, #2d6a4f);
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Emma's Gallery of Moments</h1>
+    <p>Explore the beauty captured through my lens</p>
+</header>
+
+<section class="gallery">
+    <figure class="gallery-item">
+        <img src="1.jpg" alt="Moment 1">
+        <figcaption>Moment 1</figcaption>
+    </figure>
+    <figure class="gallery-item">
+        <img src="12.jpg" alt="Moment 2">
+        <figcaption>Moment 2</figcaption>
+    </figure>
+    <figure class="gallery-item">
+        <img src="3.jpg" alt="Moment 3">
+        <figcaption>Moment 3</figcaption>
+    </figure>
+    <figure class="gallery-item">
+        <img src="4.jpg" alt="Moment 4">
+        <figcaption>Moment 4</figcaption>
+    </figure>
+    <figure class="gallery-item">
+        <img src="5.jpg" alt="Moment 5">
+        <figcaption>Moment 5</figcaption>
+    </figure>
+    <figure class="gallery-item">
+        <img src="7.jpg" alt="Moment 6">
+        <figcaption>Moment 6</figcaption>
+    </figure>
+    <figure class="gallery-item">
+        <img src="8.jpg" alt="Moment 7">
+        <figcaption>Moment 7</figcaption>
+    </figure>
+    <figure class="gallery-item">
+        <img src="9.jpg" alt="Moment 8">
+        <figcaption>Moment 8</figcaption>
+    </figure>
+    <figure class="gallery-item">
+        <img src="13.jpg" alt="Moment 9">
+        <figcaption>Moment 9</figcaption>
+    </figure>
+    <figure class="gallery-item">
+        <img src="10.jpg" alt="Moment 10">
+        <figcaption>Moment 10</figcaption>
+    </figure>
+    <figure class="gallery-item">
+        <img src="14.jpg" alt="Moment 11">
+        <figcaption>Moment 11</figcaption>
+    </figure>
+    <figure class="gallery-item">
+        <img src="15.jpg" alt="Moment 12">
+        <figcaption>Moment 12</figcaption>
+    </figure>
+    <figure class="gallery-item">
+        <img src="16.jpg" alt="Moment 13">
+        <figcaption>Moment 13</figcaption>
+    </figure>
+    <figure class="gallery-item">
+        <img src="18.jpg" alt="Moment 15">
+        <figcaption>Moment 15</figcaption>
+    </figure>
+    <figure class="gallery-item">
+        <img src="20.jpg" alt="Moment 17">
+        <figcaption>Moment 17</figcaption>
+    </figure>
+    <figure class="gallery-item">
+        <img src="22.jpg" alt="Moment 19">
+        <figcaption>Moment 19</figcaption>
+    </figure>
+    <figure class="gallery-item">
+        <img src="25.jpg" alt="Moment 22">
+        <figcaption>Moment 22</figcaption>
+    </figure>
+    <figure class="gallery-item">
+        <img src="26.jpg" alt="Moment 23">
+        <figcaption>Moment 23</figcaption>
+    </figure>
+    <figure class="gallery-item">
+        <img src="food1.jpg" alt="Moment 26">
+        <figcaption>Moment 26</figcaption>
+    </figure>
+    <figure class="gallery-item">
+        <img src="koy.jpg" alt="Moment 27">
+        <figcaption>Moment 27</figcaption>
+    </figure>
+</section>
+
+<section class="about">
+    <h2>About the Author</h2>
+    <img src="AKO.jpg" alt="Author's Picture">
+    <p>Hi, I'm Emma, a not-so-passionate photographer but someone who loves capturing the beauty of nature and sceneries as a hobby.</p>
+</section>
+
+<a href="index.html" class="btn">← Back to Portfolio</a>
+
+<!-- Lightbox -->
+<div id="lightboxModal" class="lightbox-modal">
+    <span id="lightboxClose" class="lightbox-close">&times;</span>
+    <img id="lightboxImage" class="lightbox-content" src="">
+</div>
+
+<button id="scrollTopBtn">↑</button>
+
+<script>
+    // Lightbox functionality
+    const lightbox = document.getElementById('lightboxModal');
+    const lightboxImg = document.getElementById('lightboxImage');
+    const closeBtn = document.getElementById('lightboxClose');
+
+    document.querySelectorAll('.gallery-item img').forEach(img => {
+        img.addEventListener('click', () => {
+            lightboxImg.src = img.src;
+            lightbox.style.display = 'flex';
+        });
+    });
+
+    closeBtn.addEventListener('click', () => lightbox.style.display = 'none');
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) lightbox.style.display = 'none';
+    });
+
+    // Scroll to Top
+    const scrollBtn = document.getElementById('scrollTopBtn');
+    window.addEventListener('scroll', () => {
+        scrollBtn.style.display = window.scrollY > 400 ? 'block' : 'none';
+    });
+    scrollBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Optional: Theme Toggle (consistent with other pages)
+    const themeToggle = document.createElement('button');
+    themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+    themeToggle.style.position = 'fixed';
+    themeToggle.style.top = '20px';
+    themeToggle.style.right = '20px';
+    themeToggle.style.background = 'rgba(255,255,255,0.2)';
+    themeToggle.style.color = 'white';
+    themeToggle.style.border = 'none';
+    themeToggle.style.padding = '10px';
+    themeToggle.style.borderRadius = '50%';
+    themeToggle.style.cursor = 'pointer';
+    themeToggle.style.zIndex = '100';
+    document.body.appendChild(themeToggle);
+
+    themeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        themeToggle.innerHTML = document.body.classList.contains('dark-mode') 
+            ? '<i class="fas fa-sun"></i>' 
+            : '<i class="fas fa-moon"></i>';
+    });
+</script>
+</body>
+</html>

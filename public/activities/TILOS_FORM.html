@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Registration Form</title>
+  <link rel="stylesheet" href="TILOS_FORM.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <div class="form-container">
+    <header class="form-header">
+      <h1>Student Registration Form</h1>
+      <p>Please fill out all required information</p>
+    </header>
+
+    <form id="registrationForm">
+      <div class="form-group">
+        <label for="surname">Surname</label>
+        <input type="text" id="surname" name="surname" placeholder="Enter your surname" maxlength="20">
+      </div>
+
+      <div class="form-group">
+        <label for="firstname">First Name</label>
+        <input type="text" id="firstname" name="firstname" placeholder="Enter your first name" maxlength="20">
+      </div>
+
+      <div class="form-group">
+        <label for="middlename">Middle Name</label>
+        <input type="text" id="middlename" name="middlename" placeholder="Enter your middle name" maxlength="30">
+      </div>
+
+      <div class="form-group">
+        <label for="address">Address</label>
+        <input type="text" id="address" name="address" placeholder="Enter your address" maxlength="50">
+      </div>
+
+      <div class="form-group">
+        <label>Sex</label>
+        <div class="radio-group">
+          <label><input type="radio" id="male" name="sex" value="Male"> Male</label>
+          <label><input type="radio" id="female" name="sex" value="Female"> Female</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Birthday</label>
+        <div class="select-group">
+          <select id="birthMonth" name="birthMonth">
+            <option value="">Month</option>
+            <option>January</option><option>February</option><option>March</option>
+            <option>April</option><option>May</option><option>June</option>
+            <option>July</option><option>August</option><option>September</option>
+            <option>October</option><option>November</option><option>December</option>
+          </select>
+          <select id="birthDay" name="birthDay">
+            <option value="">Day</option>
+            <!-- Days 1-31 would be here -->
+            <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+            <option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
+            <option>11</option><option>12</option><option>13</option><option>14</option><option>15</option>
+            <option>16</option><option>17</option><option>18</option><option>19</option><option>20</option>
+            <option>21</option><option>22</option><option>23</option><option>24</option><option>25</option>
+            <option>26</option><option>27</option><option>28</option><option>29</option><option>30</option>
+            <option>31</option>
+          </select>
+          <select id="birthYear" name="birthYear">
+            <option value="">Year</option>
+            <option>1990</option><option>1991</option><option>1992</option><option>1993</option>
+            <option>1994</option><option>1995</option><option>1996</option><option>1997</option>
+            <option>1998</option><option>1999</option><option>2000</option><option>2001</option>
+            <option>2002</option><option>2003</option><option>2004</option><option>2005</option>
+            <option>2006</option><option>2007</option><option>2008</option><option>2009</option>
+            <option>2010</option><option>2011</option><option>2012</option><option>2013</option>
+            <option>2014</option><option>2015</option><option>2016</option><option>2017</option>
+            <option>2018</option><option>2019</option><option>2020</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="age">Age</label>
+        <input type="text" id="age" name="age" placeholder="Enter your age" maxlength="2">
+      </div>
+
+      <div class="form-group">
+        <label>Civil Status</label>
+        <div class="radio-group">
+          <label><input type="radio" id="single" name="status" value="Single"> Single</label>
+          <label><input type="radio" id="married" name="status" value="Married"> Married</label>
+          <label><input type="radio" id="widowed" name="status" value="Widowed"> Widowed</label>
+          <label><input type="radio" id="divorced" name="status" value="Divorced"> Divorced</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Course</label>
+        <div class="checkbox-group">
+          <label><input type="checkbox" name="course" value="BS IT"> BS Information Technology</label>
+          <label><input type="checkbox" name="course" value="BS CE"> BS Civil Engineering</label>
+          <label><input type="checkbox" name="course" value="BS EE"> BS Electrical Engineering</label>
+          <label><input type="checkbox" name="course" value="BS Ed"> BS Education</label>
+          <label><input type="checkbox" name="course" value="BS Psych"> BS Psychology</label>
+          <label><input type="checkbox" name="course" value="BS PA"> BS Public Administration</label>
+          <label><input type="checkbox" name="course" value="BA Comm"> BA Communication</label>
+          <label><input type="checkbox" name="course" value="BS Acc"> BS Accountancy</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="strengths">Describe your strengths and weaknesses</label>
+        <textarea id="strengths" name="strengths" rows="5" placeholder="Type here..."></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" placeholder="Enter username" maxlength="20">
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <div class="password-group">
+          <input type="password" id="password" name="password" placeholder="Enter password" maxlength="20">
+          <button type="button" id="showPassBtn">Show</button>
+        </div>
+      </div>
+
+      <div class="buttons">
+        <input type="button" value="Check Info" id="checkInfoBtn">
+        <input type="submit" value="Submit" id="submitBtn">
+        <input type="reset" value="Clear Form">
+      </div>
+    </form>
+
+    <a href="index.html" class="btn">← Back to Portfolio</a>
+  </div>
+
+  <script>
+    // Password Toggle
+    const showPassBtn = document.getElementById('showPassBtn');
+    const passwordField = document.getElementById('password');
+    showPassBtn.addEventListener('click', () => {
+      if (passwordField.type === 'password') {
+        passwordField.type = 'text';
+        showPassBtn.textContent = 'Hide';
+      } else {
+        passwordField.type = 'password';
+        showPassBtn.textContent = 'Show';
+      }
+    });
+
+    // Check Info Button
+    const checkInfoBtn = document.getElementById('checkInfoBtn');
+    checkInfoBtn.addEventListener('click', () => {
+      const surname = document.getElementById('surname').value.trim();
+      const firstname = document.getElementById('firstname').value.trim();
+      if (!surname || !firstname) {
+        alert('Please fill in at least your surname and first name.');
+      } else {
+        alert(`Hello, ${firstname} ${surname}!`);
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Favorite Lyrics & Movies</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #2d6a4f;
+      --primary-light: #40916c;
+      --accent: #52b788;
+      --bg: #f8f9fa;
+      --text: #2d3436;
+      --card: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+      border-radius: 12px;
+      margin-bottom: 3rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    header h1 {
+      font-size: 2.8rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .section {
+      margin-bottom: 4rem;
+    }
+
+    .section h2 {
+      font-size: 2rem;
+      color: var(--primary);
+      text-align: center;
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+
+    .section h2:after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 3px;
+      background: var(--accent);
+      margin: 12px auto;
+    }
+
+    .lyrics-section {
+      background: var(--card);
+      padding: 2.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    }
+
+    .lyrics-section h3 {
+      color: var(--primary);
+      margin: 1.5rem 0 1rem;
+      font-size: 1.4rem;
+      text-align: center;
+    }
+
+    .lyrics-section p {
+      white-space: pre-line;
+      font-size: 1.05rem;
+      background: #f8f9fa;
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+    }
+
+    .movies-section {
+      background: var(--card);
+      padding: 2.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    }
+
+    .movie-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .movie-item {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .movie-item:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    }
+
+    .movie-item img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .movie-item:hover img {
+      transform: scale(1.06);
+    }
+
+    .movie-item figcaption {
+      padding: 0.8rem;
+      text-align: center;
+      font-size: 0.95rem;
+      color: var(--primary);
+      font-weight: 500;
+    }
+
+    .btn {
+      display: inline-block;
+      margin: 2rem auto;
+      padding: 12px 28px;
+      background: var(--primary);
+      color: white;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+
+    .btn:hover {
+      background: var(--accent);
+      transform: translateY(-3px);
+    }
+
+    /* Lightbox */
+    .lightbox-modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.9);
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox-content {
+      max-width: 90%;
+      max-height: 85%;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: -20px;
+      right: -20px;
+      background: white;
+      color: #333;
+      border: none;
+      border-radius: 50%;
+      width: 45px;
+      height: 45px;
+      font-size: 28px;
+      cursor: pointer;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+
+    /* Scroll to Top */
+    #scrollTopBtn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      cursor: pointer;
+      display: none;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      z-index: 100;
+    }
+
+    /* Dark Mode */
+    .dark-mode {
+      --bg: #1a1a1a;
+      --text: #e0e0e0;
+      --card: #252525;
+      --primary: #52b788;
+    }
+
+    .dark-mode header {
+      background: linear-gradient(135deg, #1f2a24, #2d6a4f);
+    }
+
+    .dark-mode .lyrics-section,
+    .dark-mode .movies-section {
+      background: var(--card);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Favorite Lyrics & Movies</h1>
+      <p>Personal Collection • Studio Ghibli & Music</p>
+    </header>
+
+    <section class="section lyrics-section">
+      <h2>Favorite Lyrics</h2>
+      <h3>Mananatili by Cup of Joe</h3>
+      <p>
+        Bawat sulok, kabisado, 'di nagbabago<br>
+        Ngunit ba't nawawala pa rin ako? Oh<br><br>
+
+        Tinulak lang ng tadhana, tila'y 'di sinasadya<br>
+        Na ikaw ay makasalubong, oh-oh-oh<br><br>
+
+        Hindi na nalito, oh-oh-oh<br><br>
+
+        'Wag mo nang pigilan pa<br>
+        Mga mata'y 'di nakatingin sa iba, kaya<br><br>
+
+        Mananatili sa iyong tabi magdamag<br>
+        Ating paligid, hindi na natin napapansin<br>
+        Gabi ay atin, kasabay ng puso at tugtugan<br><br>
+
+        Pag-indak ng ating katawan<br>
+        Mananatili, hindi tiyak ang bukas natin<br>
+        Ngunit itong gabi ay atin
+      </p>
+      <p>
+        Umaga na sa ’kin ngunit ay<br>
+        Bituin at buwan pa rin ang ‘yong nakikita<br>
+        Habang pumipikit ka na<br>
+        Sa bawat pagtawag, ang oras tinatabi<br>
+        At ang puso ay magkalapit<br>
+        Pero malayo ka pa rin<br>
+        Kahit ilang dagat man ang pagitan natin<br>
+        Hangga’t ika’y abot-tanaw, ito’y lalakbayin<br>
+        ‘Wag ka nang magduda pa<br>
+        ‘Di mapagkakaila<br>
+        Magkaiba man ang ating mundo<br>
+        Tataya pa rin sa ‘yo<br>
+        Saan man mapadpad<br>
+        Madala o malipat<br>
+        Magkalayo man ang ating mundo<br>
+        Tataya pa rin sa ‘yo
+      </p>
+    </section>
+
+    <section class="section movies-section">
+      <h2>Favorite Movies - Studio Ghibli</h2>
+      <div class="movie-gallery">
+        <figure class="movie-item">
+          <img src="away.jpg" alt="Spirited Away">
+          <figcaption>Spirited Away</figcaption>
+        </figure>
+        <figure class="movie-item">
+          <img src="waves.jpg" alt="The Wind Rises">
+          <figcaption>The Wind Rises</figcaption>
+        </figure>
+        <figure class="movie-item">
+          <img src="fireflies.jpg" alt="Grave of the Fireflies">
+          <figcaption>Grave of the Fireflies</figcaption>
+        </figure>
+        <figure class="movie-item">
+          <img src="poppy.jpg" alt="From Up on Poppy Hill">
+          <figcaption>From Up on Poppy Hill</figcaption>
+        </figure>
+        <figure class="movie-item">
+          <img src="kiki.jpg" alt="Kiki's Delivery Service">
+          <figcaption>Kiki's Delivery Service</figcaption>
+        </figure>
+        <figure class="movie-item">
+          <img src="rosco.jpg" alt="The Cat Returns">
+          <figcaption>The Cat Returns</figcaption>
+        </figure>
+        <figure class="movie-item">
+          <img src="whisper.jpg" alt="Whisper of the Heart">
+          <figcaption>Whisper of the Heart</figcaption>
+        </figure>
+        <figure class="movie-item">
+          <img src="wind.jpg" alt="The Wind Rises">
+          <figcaption>The Wind Rises</figcaption>
+        </figure>
+        <figure class="movie-item">
+          <img src="secret.jpg" alt="The Secret World of Arrietty">
+          <figcaption>The Secret World of Arrietty</figcaption>
+        </figure>
+        <figure class="movie-item">
+          <img src="tales.jpg" alt="Tales from Earthsea">
+          <figcaption>Tales from Earthsea</figcaption>
+        </figure>
+        <figure class="movie-item">
+          <img src="castle.jpg" alt="Howl's Moving Castle">
+          <figcaption>Howl's Moving Castle</figcaption>
+        </figure>
+        <figure class="movie-item">
+          <img src="cat.jpg" alt="The Cat Returns">
+          <figcaption>The Cat Returns</figcaption>
+        </figure>
+        <figure class="movie-item">
+          <img src="mono.jpg" alt="Princess Mononoke">
+          <figcaption>Princess Mononoke</figcaption>
+        </figure>
+        <figure class="movie-item">
+          <img src="marie.jpg" alt="My Neighbor Totoro">
+          <figcaption>My Neighbor Totoro</figcaption>
+        </figure>
+        <figure class="movie-item">
+          <img src="ponyo.jpg" alt="Ponyo">
+          <figcaption>Ponyo</figcaption>
+        </figure>
+        <figure class="movie-item">
+          <img src="valley.jpg" alt="The Valley of the Wind">
+          <figcaption>Naussicaä of the Valley of the Wind</figcaption>
+        </figure>
+        <figure class="movie-item">
+          <img src="yesterday.jpg" alt="Only Yesterday">
+          <figcaption>Only Yesterday</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <a href="index.html" class="btn">← Back to Portfolio</a>
+  </div>
+
+  <!-- Lightbox -->
+  <div id="lightboxModal" class="lightbox-modal">
+    <span id="lightboxClose" class="lightbox-close">&times;</span>
+    <img id="lightboxImage" class="lightbox-content" src="">
+  </div>
+
+  <button id="scrollTopBtn">↑</button>
+
+  <script>
+    // Lightbox
+    const lightbox = document.getElementById('lightboxModal');
+    const lightboxImg = document.getElementById('lightboxImage');
+    const closeBtn = document.getElementById('lightboxClose');
+
+    document.querySelectorAll('.movie-item img').forEach(img => {
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightbox.style.display = 'flex';
+      });
+    });
+
+    closeBtn.addEventListener('click', () => lightbox.style.display = 'none');
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) lightbox.style.display = 'none';
+    });
+
+    // Scroll to Top
+    const scrollBtn = document.getElementById('scrollTopBtn');
+    window.addEventListener('scroll', () => {
+      scrollBtn.style.display = window.scrollY > 400 ? 'block' : 'none';
+    });
+    scrollBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Theme Toggle
+    const themeToggle = document.createElement('button');
+    themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+    themeToggle.style.position = 'fixed';
+    themeToggle.style.top = '20px';
+    themeToggle.style.right = '20px';
+    themeToggle.style.background = 'rgba(255,255,255,0.2)';
+    themeToggle.style.color = 'white';
+    themeToggle.style.border = 'none';
+    themeToggle.style.padding = '10px';
+    themeToggle.style.borderRadius = '50%';
+    themeToggle.style.cursor = 'pointer';
+    themeToggle.style.zIndex = '200';
+    document.body.appendChild(themeToggle);
+
+    themeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      themeToggle.innerHTML = document.body.classList.contains('dark-mode') 
+        ? '<i class="fas fa-sun"></i>' 
+        : '<i class="fas fa-moon"></i>';
+    });
+  </script>
+</body>
+</html>
