@@ -1,0 +1,228 @@
+BODY {
+background-color: lightblue;
+}
+DIV.one {
+	position: absolute;
+	top: 50;
+	left: 50;
+	font-size: 36px;
+	color: Blue;
+	font-weight: bold;
+	z-index: 0;
+}
+DIV.two {
+	position: absolute;
+	top: 50;
+	left: 180;
+	font-size: 36px;
+	color: Red;
+	font-style: italic;
+	z-index: 1;
+}
+DIV.three {
+	position: absolute;
+	top: 100;
+	left: 100;
+	width: 450;
+	height: 250;
+	background: #ebfaeb;
+	font-family:lucida grande;
+	font-size: 10pt;
+	color: blue;
+	overflow: auto;
+	
+}
+DIV.four{
+	position: absolute;
+	top: 100;
+	left: 600;
+	width: 450;
+	height: 250;
+	background: #ebfaeb;
+	font-family:lucida grande;
+	font-size: 10pt;
+	color: blue;
+	overflow: auto;
+}
+DIV.five {
+	position: absolute;
+	top: 370;
+	left: 50;
+	font-size: 36px;
+	color: Magenta;
+	font-weight: bold;
+	z-index: 0;
+}
+DIV.six {
+	position: absolute;
+	top: 370;
+	left: 200;
+	font-size: 36px;
+	color: Purple;
+	font-weight: bold;
+	z-index: 0;
+}
+IMG.one{
+	position: absolute;
+	top: 450;
+	left: 200;
+	width: 140;
+	height: 200;
+	z-index: 0;
+}
+IMG.two{
+	position: absolute;
+	top: 700;
+	left: 200;
+	width: 140;
+	height: 200;
+	border:thick;
+	z-index: 1;
+}
+IMG.three{
+	position: absolute;
+	top: 450;
+	left: 380;
+	width: 140;
+	height: 200;
+	z-index: 2;
+}	
+IMG.four{
+	position: absolute;
+	top: 450;
+	left: 740;
+	width: 140;
+	height: 200;
+	border:thick;
+	z-index: 1;
+}
+IMG.five{
+	position: absolute;
+	top: 450;
+	left: 560;
+	width: 140;
+	height: 200;
+	border:thick;
+	z-index: 1;
+}
+IMG.six{
+	position: absolute;
+	top: 700;
+	left: 560;
+	width: 140;
+	height: 200;
+	border:thick;
+	z-index: 1;
+}
+IMG.seven{
+	position: absolute;
+	top: 700;
+	left: 740;
+	width: 140;
+	height: 200;
+	border:thick;
+	z-index: 1;
+}
+IMG.eight{
+	position: absolute;
+	top: 700;
+	left: 380;
+	width: 140;
+	height: 200;
+	border:thick;
+	z-index: 1;
+}
+
+IMG.nine{
+	position: absolute;
+	top: 950;
+	left: 200;
+	width: 140;
+	height: 200;
+	border:thick;
+	z-index: 1;
+}
+IMG.ten{
+	position: absolute;
+	top: 950;
+	left: 380;
+	width: 140;
+	height: 200;
+	border:thick;
+	z-index: 1;
+}
+IMG.eleven{
+	position: absolute;
+	top: 950;
+	left: 560;
+	width: 140;
+	height: 200;
+	border:thick;
+	z-index: 1;
+}
+IMG.twelve{
+	position: absolute;
+	top: 950;
+	left: 740;
+	width: 140;
+	height: 200;
+	border:thick;
+	z-index: 1;
+}
+IMG.thirteen{
+	position: absolute;
+	top: 1200;
+	left: 200;
+	width: 140;
+	height: 200;
+	border:thick;
+	z-index: 1;
+}
+IMG.fourteen{
+	position: absolute;
+	top: 1200;
+	left: 380;
+	width: 140;
+	height: 200;
+	border:thick;
+	z-index: 1;
+}IMG.fifthteen{
+	position: absolute;
+	top: 1200;
+	left: 560;
+	width: 140;
+	height: 200;
+	border:thick;
+	z-index: 1;
+}
+IMG.sixteen{
+	position: absolute;
+	top: 1200;
+	left: 740;
+	width: 140;
+	height: 200;
+	border:thick;
+	z-index: 1;
+}
+IMG.gif1{
+	position: absolute;
+	width: 500;
+	height: 500;
+	z-index: 0;
+}
+IMG.gif2{
+	position: absolute;
+	width: 500;
+	height: 500;
+	top: 580;
+	left: 350;
+	z-index: 1;
+}
+IMG.gif3{
+	position: absolute;
+	top: 620;
+	left: 770;
+	width: 500;
+	height: 500;
+	z-index: 2;
+}
