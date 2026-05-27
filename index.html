@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emma Tilos - My Portfolio</title>
+    <meta property="og:title" content="Emma Tilos - My Portfolio">
+    <meta property="og:description" content="BS IT student and aspiring UI/UX designer building responsive websites and creative digital experiences.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="public/me_icon.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Emma Tilos - My Portfolio">
+    <meta name="twitter:description" content="BS IT student and aspiring UI/UX designer building responsive websites and creative digital experiences.">
+    <meta name="twitter:image" content="public/me_icon.svg">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="public/me_icon.svg" type="image/svg+xml">
+</head>
+<body>
+    <div class="bg-animation"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo"><span>Me</span>Portfolio</div>
+            <button class="hamburger-menu" id="hamburgerMenu" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#landing" class="nav-link">HOME</a></li>
+                <li><a href="#pubmat" class="nav-link">PUBMAT</a></li>
+                <li><a href="#projects" class="nav-link">PROJECTS</a></li>
+                <li><a href="#activities" class="nav-link">ACTIVITIES</a></li>
+                <li><a href="#skills" class="nav-link">SKILLS</a></li>
+                <li><button class="theme-toggle" id="themeToggle" title="Toggle dark mode">
+                    <span class="toggle-icon">🌙</span>
+                </button></li>
+                <li><a href="https://www.linkedin.com/in/emma-tilos" target="_blank" rel="noreferrer" class="follow-btn">Follow me</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Landing Section - CV Style Layout -->
+    <section id="landing" class="hero-section">
+        <div class="cv-container">
+            <!-- Left Sidebar -->
+            <div class="cv-sidebar">
+                <div class="profile-section">
+                    <div class="profile-image-wrapper">
+                        <img src="public/profile.png" alt="Profile" class="profile-image" />
+                    </div>
+                    <div class="sidebar-content">
+                        <h2>Emma Tilos</h2>
+                        <p class="job-title">UI/UX Designer & Layout Artist</p>
+                        
+                        <div class="sidebar-info">
+                            <div class="info-block">
+                                <h4>Experience</h4>
+                                <p style="font-weight: 600;">IT Student & Designer | 2023 - Present</p>
+                                <p style="font-size: 0.8rem; margin-top: 0.3rem;">BSIT student developing expertise in UI/UX design, responsive web development, and application design.</p>
+                            </div>
+                            <div class="info-block">
+                                <h4>Location</h4>
+                                <p>Valenzuela, Metro Manila</p>
+                            </div>
+                            <div class="info-block">
+                                <h4>Email</h4>
+                                <p>emmatilos5@gmail.com</p>
+                            </div>
+                        </div>
+
+                        <!-- Social Links -->
+                        <div class="sidebar-social">
+                            <a href="https://www.facebook.com/epglgsbhyyy" class="social-link" title="Facebook">fb</a>
+                            <a href="https://github.com/emyounvrsl" class="social-link" title="GitHub">gh</a>
+                            <a href="https://www.instagram.com/epglgsbhyyy/" class="social-link" title="Instagram">ig</a>
+                            <a href="https://www.linkedin.com/in/emma-tilos/" class="social-link" title="LinkedIn">in</a>
+                        </div>
+
+                        <!-- CTA Buttons -->
+                        <div class="sidebar-buttons">
+                            <a href="public/tilos-emma-cv.pdf" download class="download-btn primary-btn">Download CV</a>
+                            <a href="mailto:emmatilos5@gmail.com" class="download-btn secondary-btn">Get in Touch</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Content Area -->
+            <div class="cv-content">
+                <div class="content-header">
+                    <h1>Designer & Problem Solver</h1>
+                    <p class="intro-text">Crafting beautiful, user-centered digital experiences with a focus on accessibility and innovation</p>
+                </div>
+
+                <div class="content-grid">
+                    <div class="content-column">
+                        <div class="content-block">
+                            <h3>About</h3>
+                            <p>Hello, my name is Emma Tilos</p>
+                            <p>I am currently a college student studying Bachelor of Science in Information Technology at Pamantasan ng Lungsod ng Valenzuela.</p>
+                        </div>
+
+                        <div class="content-block">
+                            <h3>Skills</h3>
+                            <div class="skills-list">
+                                <span class="skill-tag">UI Design</span>
+                                <span class="skill-tag">UX Research</span>
+                                <span class="skill-tag">Figma</span>
+                                <span class="skill-tag">Prototyping</span>
+                                <span class="skill-tag">HTML/CSS</span>
+                                <span class="skill-tag">Web Design</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-column">
+                        <div class="content-block">
+                            <h3>Experience</h3>
+                            <div class="experience-item">
+                                <h4>Public Information Officer</h4>
+                                <p class="experience-meta">PLV - SHIELD | 2024 - 2026</p>
+                                <p>Responsible for managing public information and communications.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-column">
+                        <div class="content-block">
+                            <h3>Education</h3>
+                            <div class="experience-item">
+                                <h4>Bachelor of Science in Information Technology</h4>
+                                <p class="experience-meta">Pamantasan ng Lungsod ng Valenzuela | 2023 - 2027</p>
+                            </div>
+                        </div>
+
+                        <div class="content-block">
+                            <h3>Certifications & Trainings</h3>
+                            <div id="certificationsList"></div>
+                            <div class="certification-pagination" id="certificationPagination"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pubmat Gallery Section -->
+    <section id="pubmat" class="pubmat-section">
+        <div class="section-header">
+            <div class="section-label">Organization</div>
+            <h2>Publicity Materials</h2>
+            <p>Browse the publicity materials and designs created for PLV - SHIELD</p>
+        </div>
+
+        <div class="pubmat-filters">
+            <button class="pubmat-filter active" data-filter="all">All</button>
+            <button class="pubmat-filter" data-filter="posters">Posters</button>
+            <button class="pubmat-filter" data-filter="banners">Banners</button>
+            <button class="pubmat-filter" data-filter="social">Social Media</button>
+            <button class="pubmat-filter" data-filter="flyers">Flyers</button>
+        </div>
+
+        <div class="carousel-container">
+            <div class="carousel-wrapper">
+                <button class="carousel-nav prev-btn" id="pubmatPrev">‹</button>
+                <div class="carousel-content" id="pubmatCarousel"></div>
+                <button class="carousel-nav next-btn" id="pubmatNext">›</button>
+            </div>
+            <div class="carousel-indicators" id="pubmatIndicators"></div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="section-header">
+            <div class="section-label">Portfolio</div>
+            <h2>Featured Projects</h2>
+            <p>Explore my latest work across different categories and technologies</p>
+        </div>
+
+        <div class="category-filters">
+            <button class="filter-btn active" data-category="all">All Projects</button>
+            <button class="filter-btn" data-category="web">Web Development</button>
+            <button class="filter-btn" data-category="mobile">Mobile Apps</button>
+            <button class="filter-btn" data-category="design">Design</button>
+            <button class="filter-btn" data-category="other">Other</button>
+        </div>
+
+        <div class="projects-grid" id="projectsGrid"></div>
+        <div class="pagination" id="projectsPagination"></div>
+    </section>
+
+    <!-- Activities Section -->
+    <section id="activities" class="activities-section">
+        <div class="section-header">
+            <div class="section-label">Compiled Work</div>
+            <h2>Academic Activities</h2>
+            <p>A compilation of checked and reviewed academic activities</p>
+        </div>
+        <div class="activities-grid" id="activitiesGrid"></div>
+        <div class="pagination" id="activitiesPagination"></div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="section-header">
+            <div class="section-label">SKILLS</div>
+            <h2>My Skills and Badges</h2>
+            <p>Explore my list of skills and acquired badges</p>
+        </div>
+
+        <div class="category-filters">
+            <button class="filter-btn active" data-category="all">All</button>
+            <button class="filter-btn" data-category="web">Badges</button>
+            <button class="filter-btn" data-category="mobile">Skills</button>
+            <button class="filter-btn" data-category="design">Certifications</button>
+        </div>
+
+        <div class="skills-grid" id="skillsGrid"></div>
+        <div class="pagination" id="skillsPagination"></div>
+    </section>
+
+    <!-- Modals -->
+    <div class="modal" id="skillsModal">
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <div class="modal-inner">
+                <div class="modal-image">
+                    <img id="modalSkillsImage" src="" alt="Skills" />
+                    <video id="modalSkillsVideo" controls playsinline style="max-width:100%; display:none;">
+                        <!-- source set dynamically -->
+                    </video>
+                </div>
+                <div class="modal-details">
+                    <h2 id="modalSkillsTitle"></h2>
+                    <p class="modal-category" id="modalSkillsCategory"></p>
+                    <p id="modalSkillsDescription"></p>
+                    <div class="modal-tags" id="modalSkillsTags"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="projectModal">
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <div class="modal-inner">
+                <div class="modal-image">
+                    <img id="modalProjectImage" src="" alt="Project" />
+                    <video id="modalProjectVideo" controls playsinline style="max-width:100%; display:none;">
+                        <!-- source set dynamically -->
+                    </video>
+                </div>
+                <div class="modal-details">
+                    <h2 id="modalProjectTitle"></h2>
+                    <p class="modal-category" id="modalProjectCategory"></p>
+                    <p id="modalProjectDescription"></p>
+                    <div class="modal-tags" id="modalProjectTags"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="activityModal">
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <div class="modal-inner">
+                <div class="modal-image">
+                    <img id="modalActivityImage" src="" alt="Activity" />
+                    <video id="modalActivityVideo" controls playsinline style="max-width:100%; display:none;">
+                        <source id="modalActivityVideoSource" src="" type="video/mp4" />
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="modal-details">
+                    <h2 id="modalActivityTitle"></h2>
+                    <p id="modalActivityDescription"></p>
+                    <a id="modalActivityLink" href="" class="modal-link" target="_blank">View Full Activity →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pubmat Modal - SEPARATE -->
+    <div class="modal" id="pubmatModal">
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <div class="modal-inner pubmat-modal-inner">
+                <div class="modal-image">
+                    <img id="modalPubmatImage" src="" alt="Publicity Material" />
+                </div>
+                <div class="modal-details">
+                    <h2 id="modalPubmatTitle"></h2>
+                    <p class="modal-category">Pubmat</p>
+                    <p id="modalPubmatDescription"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
