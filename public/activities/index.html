@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Emma Tilos | Portfolio</title>
+  <link rel="stylesheet" href="TILOS_PORTFOLIO.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <h1>Emma Tilos</h1>
+      <p class="subtitle">IT Student • Web Developer • Designer</p>
+      <button id="themeToggle">
+        <i class="fas fa-moon"></i>
+      </button>
+    </div>
+  </header>
+
+  <section class="container">
+    <h2>About This Compilation</h2>
+    <p>This portfolio contains a compilation of activities that have already been reviewed and checked. It is structured for compliance and easy access.</p>
+  </section>
+
+  <section class="container">
+    <h2>Checked Activities</h2>
+    <div class="activity-table" id="activityTable">
+      <div class="activity-card" data-activity="Activity 1 details: Personal Vlog description and more info here." data-image="MPB.png" data-video="sunset.mp4">
+        <h3>Activity 1</h3>
+        <p>PERSONAL VLOG</p>
+        <a href="TILOS_PERSONAL_VLOG.html" class="btn activityBtn">View Activity</a>
+      </div>
+      <div class="activity-card" data-activity="Activity 2 details: Gallery description and more info here." data-image="GOM.png">
+        <h3>Activity 2</h3>
+        <p>GALLERY</p>
+        <a href="TILOS_GAL_MO.html" class="btn activityBtn">View Activity</a>
+      </div>
+      <div class="activity-card" data-activity="Activity 3 details: Gallery with CSS description and more info here." data-image="GOMTWO.png">
+        <h3>Activity 3</h3>
+        <p>GALLERY WITH CSS</p>
+        <a href="TILOS_GAL_WITHPAGS.html" class="btn activityBtn">View Activity</a>
+      </div>
+      <div class="activity-card" data-activity="Activity 4 details: HTML Div description and more info here." data-image="FLM.png">
+        <h3>Activity 4</h3>
+        <p>HTML DIV</p>
+        <a href="TILOS_DIV.html" class="btn activityBtn">View Activity</a>
+      </div>
+      <div class="activity-card" data-activity="Activity 5 details: Positioning description and more info here." data-image="JONAXX.png">
+        <h3>Activity 5</h3>
+        <p>POSITIONING</p>
+        <a href="TILOS_jonaxx.html" class="btn activityBtn">View Activity</a>
+      </div>
+      <div class="activity-card" data-activity="Activity 6 details: Panel description and more info here." data-image="CATTT.png">
+        <h3>Activity 6</h3>
+        <p>PANEL</p>
+        <a href="TILOS_GATEGORY.html" class="btn activityBtn">View Activity</a>
+      </div>
+      <div class="activity-card" data-activity="Activity 7 details: Form description and more info here." data-image="FORM.png">
+        <h3>Activity 7</h3>
+        <p>FORM</p>
+        <a href="TILOS_FORM.html" class="btn activityBtn">View Activity</a>
+      </div>
+    </div>
+    
+    <!-- Pagination Controls -->
+    <div class="pagination-controls" id="paginationControls">
+      <button class="pagination-btn" id="prevBtn" style="display:none;">← Previous</button>
+      <span class="pagination-info" id="paginationInfo">Page 1 of 2</span>
+      <button class="pagination-btn" id="nextBtn">Next →</button>
+    </div>
+  </section>
+
+  <section class="container">
+    <h2>Skills Demonstrated</h2>
+    <div class="skills-grid">
+      <div class="skill-item"><img src="HTML.jpg" alt="HTML"></div>
+      <div class="skill-item"><img src="CSS.jpg" alt="CSS"></div>
+      <div class="skill-item"><img src="CISCO.png" alt="Cisco"></div>
+      <div class="skill-item"><img src="C++.jpg" alt="C++"></div>
+      <div class="skill-item"><img src="JAVA.png" alt="Java"></div>
+      <div class="skill-item"><img src="Csharp.png" alt="C#"></div>
+      <div class="skill-item"><img src="SQL.png" alt="SQL"></div>
+      <div class="skill-item"><img src="ADOB.png" alt="Adobe"></div>
+    </div>
+  </section>
+
+  <section class="container">
+    <h2>Contact</h2>
+    <div class="contact-info">
+      <p><strong>Email:</strong> tilosemma.plv@gmail.com</p>
+      <p><strong>Facebook:</strong> <a href="https://web.facebook.com/epglgsbhyyy" target="_blank">facebook.com/epglgsbhyyy</a></p>
+      <p><strong>Instagram:</strong> <a href="https://www.instagram.com/epglgsbhyyy/" target="_blank">instagram.com/epglgsbhyyy/</a></p>
+      <p><strong>Github:</strong> <a href="https://github.com/emyounvrsl" target="_blank">github.com/emyounvrsl</a></p>
+      <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/emma-tilos-05a27a356/" target="_blank">linkedin.com/in/emma-tilos</a></p>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Emma Tilos. All Rights Reserved.</p>
+  </footer>
+
+  <div id="activityModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <div id="modalText"></div>
+    </div>
+  </div>
+
+  <div id="imagePreviewModal" class="image-modal">
+    <img id="previewImage" src="" alt="Activity Preview" style="display:none;">
+    <video id="previewVideo" class="preview-video" controls style="display:none;">
+      <source id="previewVideoSource" src="" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <button id="scrollTopBtn">↑</button>
+
+  <script>
+    // Pagination Variables
+    const ITEMS_PER_PAGE = 6;
+    let currentPage = 1;
+    const activityCards = document.querySelectorAll('.activity-card');
+    const totalPages = Math.ceil(activityCards.length / ITEMS_PER_PAGE);
+
+    // Pagination Functions
+    function showPage(pageNum) {
+      const start = (pageNum - 1) * ITEMS_PER_PAGE;
+      const end = start + ITEMS_PER_PAGE;
+
+      activityCards.forEach((card, index) => {
+        card.style.display = (index >= start && index < end) ? 'block' : 'none';
+      });
+
+      currentPage = pageNum;
+      updatePaginationControls();
+    }
+
+    function updatePaginationControls() {
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+      const paginationInfo = document.getElementById('paginationInfo');
+
+      paginationInfo.textContent = `Page ${currentPage} of ${totalPages}`;
+      prevBtn.style.display = currentPage === 1 ? 'none' : 'block';
+      prevBtn.disabled = currentPage === 1;
+      nextBtn.style.display = currentPage === totalPages ? 'none' : 'block';
+      nextBtn.disabled = currentPage === totalPages;
+    }
+
+    // Pagination Event Listeners
+    document.getElementById('prevBtn').addEventListener('click', () => {
+      if (currentPage > 1) showPage(currentPage - 1);
+    });
+
+    document.getElementById('nextBtn').addEventListener('click', () => {
+      if (currentPage < totalPages) showPage(currentPage + 1);
+    });
+
+    // Initialize pagination
+    showPage(1);
+
+    // Theme Toggle with icon change
+    const themeToggle = document.getElementById('themeToggle');
+    themeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      themeToggle.innerHTML = document.body.classList.contains('dark-mode') 
+        ? '<i class="fas fa-sun"></i>' 
+        : '<i class="fas fa-moon"></i>';
+    });
+
+    // Existing modal logic (unchanged)
+    const modal = document.getElementById("activityModal");
+    const modalText = document.getElementById("modalText");
+    const closeModal = document.querySelector(".close");
+    document.querySelectorAll('.activityBtn').forEach(button => {
+      button.addEventListener('click', (e) => {
+        const href = button.getAttribute('href');
+        if (href === "#") {
+          e.preventDefault();
+          const activityCard = button.closest('.activity-card');
+          const details = activityCard.getAttribute('data-activity');
+          modalText.textContent = details;
+          modal.style.display = "flex";
+        }
+      });
+    });
+    closeModal.addEventListener('click', () => modal.style.display = "none");
+    window.addEventListener('click', (e) => {
+      if (e.target == modal) modal.style.display = "none";
+    });
+
+    // Image/Video preview on hover
+    const imagePreviewModal = document.getElementById("imagePreviewModal");
+    const previewImage = document.getElementById("previewImage");
+    const previewVideo = document.getElementById("previewVideo");
+    const previewVideoSource = document.getElementById("previewVideoSource");
+    
+    document.querySelectorAll('.activity-card').forEach(card => {
+      card.addEventListener('mouseenter', (e) => {
+        const videoUrl = card.getAttribute('data-video');
+        const imageUrl = card.getAttribute('data-image');
+        
+        if (videoUrl) {
+          // Show video preview
+          previewImage.style.display = "none";
+          previewVideo.style.display = "block";
+          previewVideoSource.src = videoUrl;
+          previewVideo.load();
+        } else if (imageUrl) {
+          // Show image preview
+          previewVideo.style.display = "none";
+          previewImage.style.display = "block";
+          previewImage.src = imageUrl;
+        }
+        
+        if (videoUrl || imageUrl) {
+          imagePreviewModal.style.display = "block";
+          imagePreviewModal.style.top = `${e.clientY + 20}px`;
+          imagePreviewModal.style.left = `${e.clientX + 20}px`;
+        }
+      });
+      card.addEventListener('mousemove', (e) => {
+        imagePreviewModal.style.top = `${e.clientY + 20}px`;
+        imagePreviewModal.style.left = `${e.clientX + 20}px`;
+      });
+      card.addEventListener('mouseleave', () => {
+        imagePreviewModal.style.display = "none";
+        previewVideo.pause();
+      });
+    });
+
+    // Scroll to top
+    const scrollBtn = document.getElementById("scrollTopBtn");
+    window.onscroll = function() {
+      scrollBtn.style.display = (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) ? "block" : "none";
+    };
+    scrollBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>
